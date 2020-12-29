@@ -1,7 +1,7 @@
 <script src="http://192.168.1.98:8098"></script>
 <template>
 	<Page>
-		<ActionBar>
+		<ActionBar title="Home">
 			<Label text="Home"/>
 		</ActionBar>
 
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import LoginPage from "./Login"
 export default {
 	computed: {
 		message() {
@@ -30,6 +31,7 @@ export default {
 	methods: {
 		login() {
 			console.log("Login");
+			this.$navigateTo(LoginPage)
 		}
 	}
 };
