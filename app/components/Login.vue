@@ -11,7 +11,7 @@
 			<TextField v-model="username" />
 			<Label text="Password" />
 			<TextField v-model="password" />
-			<Button text="Login" @tap="login" />
+			<Button text="Get to work!" @tap="login" />
 		</StackLayout>
 	</Page>
 </template>
