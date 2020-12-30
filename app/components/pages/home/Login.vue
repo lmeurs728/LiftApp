@@ -11,12 +11,13 @@
 			<TextField v-model="username" />
 			<Label text="Password" />
 			<TextField v-model="password" />
-			<Button text="Get to work!" @tap="login" />
+			<Button text="Get to work!" @tap="getToWork" />
 		</StackLayout>
 	</Page>
 </template>
 
 <script>
+import Feed from "~/components/pages/feed/Feed"
 export default {
 	data: function() {
 		return {
@@ -25,8 +26,8 @@ export default {
 		}
 	},
 	methods: {
-		login() {
-			console.log("Login");
+		getToWork() {
+			this.$navigateTo(Feed);
 		}
 	}
 };
