@@ -1,6 +1,12 @@
 <template>
 <ScrollView orientation="Vertical">
 	<StackLayout>
+		<FlexboxLayout>
+			<Image src="~/assets/images/calebProf.jpg" height="100px" width="100px"/>
+			<Label text="cpjohnston7"/>
+				
+		
+		</FlexboxLayout>
 		<LiftSummary v-for="(liftSummary, index) in liftSummaries" :key="index"
 		:time="liftSummary.time"
 		:sets="liftSummary.sets"
