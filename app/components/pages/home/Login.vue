@@ -11,23 +11,19 @@
 			<TextField v-model="username" />
 			<Label text="Password" />
 			<TextField v-model="password" />
-			<Button text="Get to work!" @tap="getToWork" />
+			<Button text="Get to work!" @tap="$navigateTo(MainPageRouter);" />
 		</StackLayout>
 	</Page>
 </template>
 
 <script>
-import Feed from "~/components/pages/feed/Feed"
+import MainPageRouter from "~/components/mainPageRouter/MainPageRouter"
 export default {
 	data: function() {
 		return {
 			username: "",
 			password: "",
-		}
-	},
-	methods: {
-		getToWork() {
-			this.$navigateTo(Feed);
+			MainPageRouter: MainPageRouter,
 		}
 	}
 };

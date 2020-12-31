@@ -1,9 +1,10 @@
 <template>
-	<Label text="Feed"></Label>
+	<Label text="Friends"></Label>
 </template>
 
 <script>
 export default {
+
 };
 </script>
 

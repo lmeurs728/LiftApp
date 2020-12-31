@@ -1,9 +1,10 @@
 <template>
-	<Label text="Feed"></Label>
+	<Label text="Lifts"></Label>
 </template>
 
 <script>
 export default {
+
 };
 </script>
 

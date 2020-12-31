@@ -6,6 +6,8 @@ import Feed from "./components/pages/feed/Feed";
 
 Vue.use(VueDevtools);
 
+Vue.config.silent = false;
+
 new Vue({
     render: h => h('frame', [h(Home)]),
 }).$start();
