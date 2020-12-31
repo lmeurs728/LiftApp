@@ -1,5 +1,9 @@
 <template>
 	<StackLayout class="medFont">
+		<FlexboxLayout>
+			<Image src="~/assets/images/calebProf.jpg" height="100px" width="100px"/>
+			<Label text="cpjohnston7"/>
+		</FlexboxLayout>
 		<Label :text="`Time: ${time}, Sets: ${sets}, Volume: ${volume}`"></Label>
 		<Label text="Highlights:"></Label>
 		<Highlights :lift="highlights.lift"
