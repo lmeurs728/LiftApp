@@ -30,7 +30,6 @@ export default {
 	},
 	methods: {
 		login() {
-			console.log("Login");
 			this.$navigateTo(LoginPage)
 		}
 	}

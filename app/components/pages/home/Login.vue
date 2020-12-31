@@ -11,22 +11,19 @@
 			<TextField v-model="username" />
 			<Label text="Password" />
 			<TextField v-model="password" />
-			<Button text="Get to work!" @tap="login" />
+			<Button text="Get to work!" @tap="$navigateTo(MainPageRouter);" />
 		</StackLayout>
 	</Page>
 </template>
 
 <script>
+import MainPageRouter from "~/components/mainPageRouter/MainPageRouter"
 export default {
 	data: function() {
 		return {
 			username: "",
 			password: "",
-		}
-	},
-	methods: {
-		login() {
-			console.log("Login");
+			MainPageRouter: MainPageRouter,
 		}
 	}
 };
