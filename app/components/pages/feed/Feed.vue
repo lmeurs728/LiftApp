@@ -1,4 +1,5 @@
 <template>
+<ScrollView orientation="Vertical">
 	<StackLayout>
 		<LiftSummary v-for="(liftSummary, index) in liftSummaries" :key="index"
 		:time="liftSummary.time"
@@ -6,6 +7,7 @@
 		:volume="liftSummary.volume"
 		:highlights="liftSummary.highlights" />
 	</StackLayout>
+</ScrollView>
 </template>
 
 <script>
@@ -48,6 +50,26 @@ export default {
 					}
 				},
 				{
+					time: "4:00",
+					sets: 7,
+					volume: 979,
+					highlights: {
+						lift: "Bench Press",
+						reps: 12,
+						weight: 200,
+					}
+				},
+				{
+					time: "4:00",
+					sets: 7,
+					volume: 979,
+					highlights: {
+						lift: "Bench Press",
+						reps: 12,
+						weight: 200,
+					}
+				},
+{
 					time: "4:00",
 					sets: 7,
 					volume: 979,

@@ -1,11 +1,6 @@
 <template>
-	<StackLayout>
-		<Label text="Time:"></Label>
-		<Label :text="time"></Label>
-		<Label text="Sets:"></Label>
-		<Label :text="sets"></Label>
-		<Label text="Volume:"></Label>
-		<Label :text="volume"></Label>
+	<StackLayout class="medFont">
+		<Label :text="`Time: ${time}, Sets: ${sets}, Volume: ${volume}`"></Label>
 		<Label text="Highlights:"></Label>
 		<Highlights :lift="highlights.lift"
 					:reps="highlights.reps"
@@ -30,5 +25,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-	
+	.largeFont{
+		font-size: 22rem;
+	}
+	.medFont{
+		font-size: 16rem;
+	}
 </style>
