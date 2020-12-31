@@ -1,10 +1,10 @@
 <template>
 	<StackLayout>
-		<LiftSummary v-for="liftSummary in liftSummaries" :key="liftSummary.summary"
+		<LiftSummary v-for="(liftSummary, index) in liftSummaries" :key="index"
 		:time="liftSummary.time"
 		:sets="liftSummary.sets"
 		:volume="liftSummary.volume"
-		:summary="liftSummary.summary" />
+		:highlights="liftSummary.highlights" />
 	</StackLayout>
 </template>
 
@@ -21,25 +21,41 @@ export default {
 					time: "1:00",
 					sets: 4,
 					volume: 240,
-					summary: "Nice0"
+					highlights: {
+						lift: "Bench Press",
+						reps: 10,
+						weight: 200,
+					}
 				},
 				{
 					time: "2:00",
 					sets: 5,
 					volume: 345,
-					summary: "Nice1"
+					highlights: {
+						lift: "Bench Press",
+						reps: 10,
+						weight: 200,
+					}
 				},
 				{
 					time: "3:00",
 					sets: 6,
 					volume: 1233,
-					summary: "Nice2"
+					highlights: {
+						lift: "Bench Press",
+						reps: 10,
+						weight: 200,
+					}
 				},
 				{
 					time: "4:00",
 					sets: 7,
 					volume: 979,
-					summary: "Nice3"
+					highlights: {
+						lift: "Bench Press",
+						reps: 12,
+						weight: 200,
+					}
 				},
 			]
 		}

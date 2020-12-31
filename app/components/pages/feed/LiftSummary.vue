@@ -6,22 +6,27 @@
 		<Label :text="sets"></Label>
 		<Label text="Volume:"></Label>
 		<Label :text="volume"></Label>
-		<Label text="Summary:"></Label>
-		<Label :text="summary"></Label>
+		<Label text="Highlights:"></Label>
+		<Highlights :lift="highlights.lift"
+					:reps="highlights.reps"
+					:weight="highlights.weight">
+
+		</Highlights>
 	</StackLayout>
 </template>
 
 <script>
-import LiftSummary from "~/components/pages/feed/LiftSummary";
+
+import Highlights from "~/components/pages/feed/Highlights";
 export default {
 	props: {
 		time: String,
 		sets: Number,
 		volume: Number,
-		summary: String,
+		highlights: Object,
 	},
 	components: {
-		LiftSummary: LiftSummary
+		Highlights: Highlights
 	}
 };
 </script>
