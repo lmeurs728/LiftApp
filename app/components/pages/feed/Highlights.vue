@@ -1,22 +1,15 @@
 <template>
 	<StackLayout>
-		<FormattedString>
-            <Span :text="`${lift}: ${reps} of ${weight} pounds.`"></Span>
-        </FormattedString>
+		<Label :text="`${lift}: ${reps} of ${weight} pounds.`"></Label>
 	</StackLayout>
 </template>
 
 <script>
-import LiftSummary from "~/components/pages/feed/LiftSummary";
 export default {
 	props: {
 		lift: String,
 		reps: Number,
 		weight: Number,
-		
-	},
-	components: {
-		LiftSummary: LiftSummary
 	}
 };
 </script>

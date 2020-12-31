@@ -10,13 +10,11 @@
 		<Highlights :lift="highlights.lift"
 					:reps="highlights.reps"
 					:weight="highlights.weight">
-
 		</Highlights>
 	</StackLayout>
 </template>
 
 <script>
-
 import Highlights from "~/components/pages/feed/Highlights";
 export default {
 	props: {
