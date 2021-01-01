@@ -4,10 +4,10 @@
 			<Image src="~/assets/images/calebProf.jpg" height="100px" width="100px"/>
 			<Label text="cpjohnston7"/>
 		</FlexboxLayout>-->
-		<profSum :pic="profSum.pic"
-				 :user="profSum.user"
+		<ProfileSum :pic="profileSum.pic"
+				 :user="profileSum.user"
 					>
-		</profSum>
+		</ProfileSum>
 		
 		<Label :text="`Time: ${time}, Sets: ${sets}, Volume: ${volume}`"></Label>
 		<Label text="Highlights:"></Label>
@@ -15,23 +15,26 @@
 					:reps="highlights.reps"
 					:weight="highlights.weight">
 		</Highlights>
+		<FlexboxLayout>
+			
+		</FlexboxLayout>
 	</StackLayout>
 </template>
 
 <script>
 import Highlights from "~/components/pages/feed/Highlights";
-import profSum from "~/components/pages/feed/profSum";
+import ProfileSum from "~/components/pages/feed/ProfileSum";
 export default {
 	props: {
 		time: String,
 		sets: Number,
 		volume: Number,
 		highlights: Object,
-		profSum: Object,
+		profileSum: Object,
 	},
 	components: {
 		Highlights: Highlights,
-		profSum: profSum
+		ProfileSum: ProfileSum
 	}
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
 	<StackLayout>
 		<Label :text="`yes  ${user}`"></Label>
-        <Image :src="`${pic}`" class="profSize">
+        <Image :src="`${pic}`" stretch="aspectFill" width="20rem" height="20rem">
         </Image>
 	</StackLayout>
 </template>
@@ -16,9 +16,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.profSize {
-		width: "20";
-        height: "20";
-	}
+
 	
 </style>

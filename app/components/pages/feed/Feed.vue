@@ -6,7 +6,7 @@
 		:sets="liftSummary.sets"
 		:volume="liftSummary.volume"
 		:highlights="liftSummary.highlights"
-		:profSum="liftSummary.profSum" />
+		:profileSum="liftSummary.profileSum" />
 	</StackLayout>
 </ScrollView>
 </template>
@@ -29,7 +29,7 @@ export default {
 						reps: 10,
 						weight: 200,
 					},
-					profSum: {
+					profileSum: {
 						pic: "~/assets/images/calebProf.jpg",
 						user: "cpjohnston7",
 					},
@@ -43,7 +43,7 @@ export default {
 						reps: 10,
 						weight: 200,
 					},
-					profSum: {
+					profileSum: {
 						pic: "~/assets/images/lanceProf.jpg",
 						user: "lancem",
 					},
@@ -57,7 +57,7 @@ export default {
 						reps: 10,
 						weight: 200,
 					},
-					profSum: {
+					profileSum: {
 						pic: "~/assets/images/samProf.jpg",
 						user: "samm",
 					},
