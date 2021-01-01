@@ -1,6 +1,7 @@
 <template>
 	<Page>
-		<BottomNavigation selectedIndex="0" class="bottom-nav">
+		<ActionBar><Label :text="pageTitle"/></ActionBar>
+		<BottomNavigation @selectedIndexChanged="changeView($event)" :selectedIndex="selectedIndex" class="bottom-nav">
 			<TabStrip class="fas">
 				<TabStripItem><Label :text="String.fromCharCode(0xf015)"/></TabStripItem>
 				<TabStripItem><Label :text="String.fromCharCode(0xf44b)"/></TabStripItem>
@@ -28,12 +29,38 @@ export default {
 		Lifts,
 		MyProgress,
 		Friends,
+	},
+	data: function() {
+		return {
+			selectedIndex: 0,
+		}
+	},
+	computed: {
+		pageTitle: function() {
+			switch(this.selectedIndex) {
+				case 0:
+					return "Feed";
+				case 1:
+					return "Lifts";
+				case 2:
+					return "My Progress";
+				case 3:
+					return "Friends";
+				default:
+					return "Feed";
+			}
+		}
+	},
+	methods: {
+		changeView: function(event) {
+			this.selectedIndex = event.newIndex;
+		}
 	}
 };
 </script>
 
 <style scoped lang="scss">
 	TabStripItem {
-		font-size: xx-large;
+		font-size: 24rem;
 	}
 </style>
