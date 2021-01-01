@@ -13,7 +13,7 @@
 						<Span :text="message"/>
 					</FormattedString>
 				</Label>
-				<Image src="~/assets/images/RippedGuy.jpg"/>
+				<Image stretch="aspectFill" height="300em" src="~/assets/images/RippedGuy.jpg"/>
 				<Button class="my-button" text="Login" @tap="login"></Button>
 			</StackLayout>
 		</ScrollView>
