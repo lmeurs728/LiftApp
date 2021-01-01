@@ -1,9 +1,10 @@
 <template>
 	<StackLayout class="medFont">
-		<FlexboxLayout>
+		<!--<FlexboxLayout>
 			<Image src="~/assets/images/calebProf.jpg" height="100px" width="100px"/>
 			<Label text="cpjohnston7"/>
-		</FlexboxLayout>
+		</FlexboxLayout>-->
+		<Label :text="user"></Label>
 		<Label :text="`Time: ${time}, Sets: ${sets}, Volume: ${volume}`"></Label>
 		<Label text="Highlights:"></Label>
 		<Highlights :lift="highlights.lift"
@@ -15,15 +16,18 @@
 
 <script>
 import Highlights from "~/components/pages/feed/Highlights";
+import profSum from "~/components/pages/feed/profSum";
 export default {
 	props: {
 		time: String,
 		sets: Number,
 		volume: Number,
 		highlights: Object,
+		profSum: Object,
 	},
 	components: {
-		Highlights: Highlights
+		Highlights: Highlights,
+		profSum: profSum
 	}
 };
 </script>

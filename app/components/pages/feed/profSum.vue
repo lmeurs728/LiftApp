@@ -7,7 +7,7 @@
 <script>
 export default {
 	props: {
-        user: String
+        user: String,
         pic: String
 	}
 };

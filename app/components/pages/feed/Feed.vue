@@ -27,58 +27,27 @@ export default {
 						lift: "Bench Press",
 						reps: 10,
 						weight: 200,
+					},
+					profSum: {
+						prof: "yes",
+						user: "cpjohnston7"
 					}
 				},
 				{
-					time: "2:00",
-					sets: 5,
-					volume: 345,
+					time: "1:00",
+					sets: 4,
+					volume: 240,
 					highlights: {
 						lift: "Bench Press",
 						reps: 10,
 						weight: 200,
+					},
+					profSum: {
+						prof: "yes",
+						user: "cpjohnston7"
 					}
 				},
-				{
-					time: "3:00",
-					sets: 6,
-					volume: 1233,
-					highlights: {
-						lift: "Bench Press",
-						reps: 10,
-						weight: 200,
-					}
-				},
-				{
-					time: "4:00",
-					sets: 7,
-					volume: 979,
-					highlights: {
-						lift: "Bench Press",
-						reps: 12,
-						weight: 200,
-					}
-				},
-				{
-					time: "4:00",
-					sets: 7,
-					volume: 979,
-					highlights: {
-						lift: "Bench Press",
-						reps: 12,
-						weight: 200,
-					}
-				},
-{
-					time: "4:00",
-					sets: 7,
-					volume: 979,
-					highlights: {
-						lift: "Bench Press",
-						reps: 12,
-						weight: 200,
-					}
-				},
+				
 			]
 		}
 	}
