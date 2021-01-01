@@ -1,5 +1,9 @@
 <template>
-	<Label text="Lifts"></Label>
+	<StackLayout>
+		<Button text="Presaved"></Button>
+		<Button text="Customize"></Button>
+		<Button text="Find"></Button>
+	</StackLayout>
 </template>
 
 <script>
