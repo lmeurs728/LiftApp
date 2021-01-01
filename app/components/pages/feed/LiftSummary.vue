@@ -4,7 +4,11 @@
 			<Image src="~/assets/images/calebProf.jpg" height="100px" width="100px"/>
 			<Label text="cpjohnston7"/>
 		</FlexboxLayout>-->
-		<Label :text="user"></Label>
+		<profSum :pic="profSum.pic"
+				 :user="profSum.user"
+					>
+		</profSum>
+		
 		<Label :text="`Time: ${time}, Sets: ${sets}, Volume: ${volume}`"></Label>
 		<Label text="Highlights:"></Label>
 		<Highlights :lift="highlights.lift"

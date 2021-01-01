@@ -1,6 +1,8 @@
 <template>
 	<StackLayout>
-		<Label :text="`${pic} ${user}`"></Label>
+		<Label :text="`yes  ${user}`"></Label>
+        <Image :src="`${pic}`" class="profSize">
+        </Image>
 	</StackLayout>
 </template>
 
@@ -8,11 +10,15 @@
 export default {
 	props: {
         user: String,
-        pic: String
+        pic: String,
 	}
 };
 </script>
 
 <style scoped lang="scss">
+.profSize {
+		width: "20";
+        height: "20";
+	}
 	
 </style>

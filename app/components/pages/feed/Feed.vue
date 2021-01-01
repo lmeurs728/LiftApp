@@ -5,7 +5,8 @@
 		:time="liftSummary.time"
 		:sets="liftSummary.sets"
 		:volume="liftSummary.volume"
-		:highlights="liftSummary.highlights" />
+		:highlights="liftSummary.highlights"
+		:profSum="liftSummary.profSum" />
 	</StackLayout>
 </ScrollView>
 </template>
@@ -29,9 +30,9 @@ export default {
 						weight: 200,
 					},
 					profSum: {
-						prof: "yes",
-						user: "cpjohnston7"
-					}
+						pic: "~/assets/images/calebProf.jpg",
+						user: "cpjohnston7",
+					},
 				},
 				{
 					time: "1:00",
@@ -43,9 +44,23 @@ export default {
 						weight: 200,
 					},
 					profSum: {
-						prof: "yes",
-						user: "cpjohnston7"
-					}
+						pic: "~/assets/images/lanceProf.jpg",
+						user: "lancem",
+					},
+				},
+				{
+					time: "1:00",
+					sets: 4,
+					volume: 240,
+					highlights: {
+						lift: "Bench Press",
+						reps: 10,
+						weight: 200,
+					},
+					profSum: {
+						pic: "~/assets/images/samProf.jpg",
+						user: "samm",
+					},
 				},
 				
 			]
