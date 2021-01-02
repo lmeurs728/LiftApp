@@ -15,8 +15,9 @@
 					:reps="highlights.reps"
 					:weight="highlights.weight">
 		</Highlights>
-		<FlexboxLayout>
-			
+		<FlexboxLayout class="borderY fas" justifyContent="center" padding="10rem" backgroundColor="lightBlue">
+			<Label :text="String.fromCharCode(0xf164)" fontSize="30rem" marginRight="100rem"/>
+			<Label :text="String.fromCharCode(0xf27a)" fontSize="30rem"/>
 		</FlexboxLayout>
 	</StackLayout>
 </template>
@@ -45,5 +46,11 @@ export default {
 	}
 	.medFont{
 		font-size: 16rem;
+	}
+	.borderY{
+		border-bottom-width: 1;
+		border-color:black;
+		border-top-width: 1;
+		
 	}
 </style>

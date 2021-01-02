@@ -1,9 +1,9 @@
 <template>
-	<StackLayout>
-		<Label :text="`yes  ${user}`"></Label>
+	<FlexboxLayout>
         <Image :src="`${pic}`" stretch="aspectFill" width="20rem" height="20rem">
         </Image>
-	</StackLayout>
+        <Label :text="`${user}`"></Label>
+	</FlexboxLayout>
 </template>
 
 <script>
