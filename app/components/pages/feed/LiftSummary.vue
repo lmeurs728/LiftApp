@@ -15,9 +15,13 @@
 					:reps="highlights.reps"
 					:weight="highlights.weight">
 		</Highlights>
+		<FlexboxLayout>
+			<Label :text="`${likes}	likes`"></Label>
+			<Label :text="`${comments} comments`"></Label>
+		</FlexboxLayout>
 		<FlexboxLayout class="borderY fas" justifyContent="center" padding="10rem" backgroundColor="lightBlue">
-			<Label :text="String.fromCharCode(0xf164)" fontSize="30rem" marginRight="100rem"/>
-			<Label :text="String.fromCharCode(0xf27a)" fontSize="30rem"/>
+			<Button :text="String.fromCharCode(0xf164)" fontSize="30rem" marginRight="100rem" @tap="likes++"/>
+			<Button :text="String.fromCharCode(0xf27a)" fontSize="30rem" @tap="comments++"/>
 		</FlexboxLayout>
 	</StackLayout>
 </template>
@@ -32,6 +36,12 @@ export default {
 		volume: Number,
 		highlights: Object,
 		profileSum: Object,
+	},
+	data: function(){
+		return{
+			likes: 0,
+			comments: 0,
+		}
 	},
 	components: {
 		Highlights: Highlights,
