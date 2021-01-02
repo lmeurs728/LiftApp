@@ -4,10 +4,10 @@
 			<Image src="~/assets/images/calebProf.jpg" height="100px" width="100px"/>
 			<Label text="cpjohnston7"/>
 		</FlexboxLayout>-->
-		<profSum :pic="profSum.pic"
-				 :user="profSum.user"
+		<ProfileSum :pic="profileSum.pic"
+				 :user="profileSum.user"
 					>
-		</profSum>
+		</ProfileSum>
 		
 		<Label :text="`Time: ${time}, Sets: ${sets}, Volume: ${volume}`"></Label>
 		<Label text="Highlights:"></Label>
@@ -15,23 +15,37 @@
 					:reps="highlights.reps"
 					:weight="highlights.weight">
 		</Highlights>
+		<FlexboxLayout>
+			<Label :text="`${likes}	likes`"></Label>
+			<Label :text="`${comments} comments`"></Label>
+		</FlexboxLayout>
+		<FlexboxLayout class="borderY fas" justifyContent="center" padding="10rem" backgroundColor="lightBlue">
+			<Button :text="String.fromCharCode(0xf164)" fontSize="30rem" marginRight="100rem" @tap="likes++"/>
+			<Button :text="String.fromCharCode(0xf27a)" fontSize="30rem" @tap="comments++"/>
+		</FlexboxLayout>
 	</StackLayout>
 </template>
 
 <script>
 import Highlights from "~/components/pages/feed/Highlights";
-import profSum from "~/components/pages/feed/profSum";
+import ProfileSum from "~/components/pages/feed/ProfileSum";
 export default {
 	props: {
 		time: String,
 		sets: Number,
 		volume: Number,
 		highlights: Object,
-		profSum: Object,
+		profileSum: Object,
+	},
+	data: function(){
+		return{
+			likes: 0,
+			comments: 0,
+		}
 	},
 	components: {
 		Highlights: Highlights,
-		profSum: profSum
+		ProfileSum: ProfileSum
 	}
 };
 </script>
@@ -42,5 +56,11 @@ export default {
 	}
 	.medFont{
 		font-size: 16rem;
+	}
+	.borderY{
+		border-bottom-width: 1;
+		border-color:black;
+		border-top-width: 1;
+		
 	}
 </style>
