@@ -1,5 +1,7 @@
 <template>
-	<Label :text="`Edit ${workout.title}`"></Label>
+	<Page>
+		<Label :text="`Editting ${workout.title}`"/>
+	</Page>
 </template>
 
 <script>

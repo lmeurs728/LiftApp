@@ -6,16 +6,14 @@
 				<Button :text="editMode ? 'Save' : 'Edit'" @tap="editMode = !editMode"/>
 			</FlexboxLayout>
 			
-			<ScrollView>
+			<ScrollView height="300em">
 				<!-- Presaved Workout List -->
 				<StackLayout v-if="!editMode">
-					<PresavedWorkout v-for="workout in workouts" :key="workout.id" 
-						:workout="workout" />
+					<Button v-for="workout in workouts" :key="workout.id" :text="workout.title" @tap="$navigateTo(StartWorkout, {props: {workout: workout}})"></Button>
 				</StackLayout>
 				<!-- Editable Workout List -->
 				<StackLayout v-else>
-					<EditableWorkout v-for="workout in workouts" :key="workout.id"
-					:workout="workout" />
+					<Button v-for="workout in workouts" :key="workout.id" :text="`Edit ${workout.title}`" @tap="$navigateTo(EditWorkout, {props: {workout: workout}})"></Button>
 				</StackLayout>
 			</ScrollView>
 		</StackLayout>
@@ -23,54 +21,16 @@
 </template>
 
 <script>
-import EditableWorkout from "./EditableWorkout";
-import PresavedWorkout from "./PresavedWorkout";
+import EditWorkout from "~/components/pages/lifts/customize/EditWorkout";
+import StartWorkout from "./StartWorkout";
+import Workouts from "./Workouts";
 export default {
-	components: {
-		EditableWorkout: EditableWorkout,
-		PresavedWorkout: PresavedWorkout,
-	},
 	data: function() {
 		return {
+			StartWorkout,
+			EditWorkout,
 			editMode: false,
-			workouts: [
-				{
-					id: "000001",
-					title: "Workout1",
-					lifts: [
-						{
-							title: "Bench Press",
-							sets: 5,
-							reps: 5,
-							weight: 225
-						}
-					]
-				},
-				{
-					id: "000002",
-					title: "Workout2",
-					lifts: [
-						{
-							title: "Squat",
-							sets: 5,
-							reps: 5,
-							weight: 225
-						}
-					]
-				},
-				{
-					id: "000003",
-					title: "Workout3",
-					lifts: [
-						{
-							title: "Dead Lift",
-							sets: 5,
-							reps: 5,
-							weight: 225
-						}
-					]
-				},
-			]
+			workouts: Workouts.workouts,
 		}
 	},
 };
