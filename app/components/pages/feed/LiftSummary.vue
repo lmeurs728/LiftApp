@@ -36,7 +36,7 @@
 <script>
 import Highlights from "~/components/pages/feed/Highlights";
 import ProfileSum from "~/components/pages/feed/ProfileSum";
-
+import { alert, confirm, prompt, login, action, inputType } from "tns-core-modules/ui/dialogs";
 export default {
 	props: {
 		time: String,
