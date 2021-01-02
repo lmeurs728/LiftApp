@@ -10,5 +10,5 @@ Vue.use(VueDevtools);
 Vue.config.silent = false;
 
 new Vue({
-    render: h => h('frame', [h(StartWorkout)]),
+    render: h => h('frame', [h(MainPageRouter)]),
 }).$start();
