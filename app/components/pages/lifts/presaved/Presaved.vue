@@ -33,10 +33,10 @@ export default {
 	},
 	methods: {
 		startWorkout: function(workout) {
-			this.$navigateTo(StartWorkout, {props: {workout: this.workout}});
+			this.$navigateTo(StartWorkout, {props: {workout: workout}});
 		},
 		editWorkout: function(workout) {
-			this.$navigateTo(EditWorkout, {props: {workout: this.workout}});
+			this.$navigateTo(EditWorkout, {props: {workout: workout}});
 		}
 	}
 };
