@@ -34,17 +34,17 @@ export default {
 			title: "Workout2",
 			lifts: [
 				{
-					id: "000002",
+					id: "000003",
 					title: "Squat",
 					sets: [
 						{
-							id: "00001",
+							id: "00003",
 							previousString: "5 X 95lbs",
 							reps: "",
 							weight: "",
 						},
 						{
-							id: "00002",
+							id: "00004",
 							previousString: "7 X 85lbs",
 							reps: "",
 							weight: "",
@@ -52,7 +52,7 @@ export default {
 					],
 				},
 				{
-					id: "000002",
+					id: "000004",
 					title: "Overhead Press",
 					sets: [],
 				}
@@ -63,17 +63,17 @@ export default {
 			title: "Workout3",
 			lifts: [
 				{
-					id: "000003",
+					id: "000005",
 					title: "Dead Lift",
 					sets: [
 						{
-							id: "00001",
+							id: "00005",
 							previousString: "5 X 95lbs",
 							reps: "",
 							weight: "",
 						},
 						{
-							id: "00002",
+							id: "00006",
 							previousString: "7 X 85lbs",
 							reps: "",
 							weight: "",
@@ -81,7 +81,7 @@ export default {
 					],
 				},
 				{
-					id: "000002",
+					id: "000006",
 					title: "Bent Over Rows",
 					sets: [],
 				}
