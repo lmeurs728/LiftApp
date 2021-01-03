@@ -9,11 +9,11 @@
 			<ScrollView height="300em">
 				<!-- Presaved Workout List -->
 				<StackLayout v-if="!editMode">
-					<Button v-for="workout in workouts" :key="workout.id" :text="workout.title" @tap="$navigateTo(StartWorkout, {props: {workout: workout}})"></Button>
+					<Button v-for="workout in workouts" :key="workout.id" :text="workout.title" @tap="$navigateTo(StartWorkout, {props: {workout: workout}})"/>
 				</StackLayout>
 				<!-- Editable Workout List -->
 				<StackLayout v-else>
-					<Button v-for="workout in workouts" :key="workout.id" :text="`Edit ${workout.title}`" @tap="$navigateTo(EditWorkout, {props: {workout: workout}})"></Button>
+					<Button v-for="workout in workouts" :key="workout.id" :text="`Edit ${workout.title}`" @tap="$navigateTo(EditWorkout, {props: {workout: workout}})"/>
 				</StackLayout>
 			</ScrollView>
 		</StackLayout>
