@@ -9,11 +9,11 @@
 			<ScrollView height="300em">
 				<!-- Presaved Workout List -->
 				<StackLayout v-if="!editMode">
-					<Button v-for="workout in workouts" :key="workout.id" :text="workout.title" @tap="$navigateTo(StartWorkout, {props: {workout: workout}})"/>
+					<Button v-for="workout in workouts" :key="workout.id" :text="workout.title" @tap="startWorkout(workout)"/>
 				</StackLayout>
 				<!-- Editable Workout List -->
 				<StackLayout v-else>
-					<Button v-for="workout in workouts" :key="workout.id" :text="`Edit ${workout.title}`" @tap="$navigateTo(EditWorkout, {props: {workout: workout}})"/>
+					<Button v-for="workout in workouts" :key="workout.id" :text="`Edit ${workout.title}`" @tap="editWorkout(workout)"/>
 				</StackLayout>
 			</ScrollView>
 		</StackLayout>
@@ -27,12 +27,18 @@ import Workouts from "./Workouts";
 export default {
 	data: function() {
 		return {
-			StartWorkout,
-			EditWorkout,
 			editMode: false,
 			workouts: Workouts.workouts,
 		}
 	},
+	methods: {
+		startWorkout: function(workout) {
+			this.$navigateTo(StartWorkout, {props: {workout: this.workout}});
+		},
+		editWorkout: function(workout) {
+			this.$navigateTo(EditWorkout, {props: {workout: this.workout}});
+		}
+	}
 };
 </script>
 
