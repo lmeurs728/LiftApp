@@ -1,13 +1,5 @@
 <template>
 	<StackLayout class="medFont">
-		<AbsoluteLayout class="dialog-wrapper">
-				<StackLayout class="dialog">
-					<Label class="h3" textWrap="true" text="Are you sure you want to share your data with 42 people?"></Label>
-
-					<Button class="btn btn-primary" text="Share"></Button>
-					<Button class="btn btn-outline" text="Cancel" @tap="closeDialog"></Button>
-				</StackLayout>
-		</AbsoluteLayout>
 		<ProfileSum :pic="profileSum.pic"
 				 :user="profileSum.user"
 					>
@@ -19,24 +11,38 @@
 					:reps="highlights.reps"
 					:weight="highlights.weight">
 		</Highlights>
-		<FlexboxLayout>
-			<Label :text="`${likes}	likes`"></Label>
-			<Label :text="`${comments} comments`"></Label>
+		<!-- # of likes and comments-->
+		<FlexboxLayout justifyContent="center">
+			<Label :text="`${likes} likes`" marginRight="100rem"></Label>
+			<Label :text="`${numComments} comments`" @tap="showDialog"></Label>
 		</FlexboxLayout>
 		<!-- like & comment button-->
 		<FlexboxLayout class="borderY fas" justifyContent="center" padding="10rem" backgroundColor="lightBlue">
 			<Button :text="String.fromCharCode(0xf164)" fontSize="30rem" marginRight="100rem" @tap="likes++"/>
 			<Button :text="String.fromCharCode(0xf27a)" fontSize="30rem" @tap="showDialog"/>
-			
 		</FlexboxLayout>
-		
+		<!-- comment popup layout-->
+		<StackLayout v-if="commentPopupOpen">
+			<FlexboxLayout  justifyContent="center">	
+				<Label text="Banter"/>
+			</FlexboxLayout>
+			<FlexboxLayout v-for="(user, index) in users" :key="'comment'+index" >
+				<Label :text="user"> </Label>
+				<Label :text="comments[index]"></Label>
+			</FlexboxLayout>
+			<TextField v-model="currentComment" hint="" />
+			<FlexboxLayout class="borderyY">	
+				<Button text="Save" @tap="addComment()"></Button>
+				<Button text="Cancel" @tap="commentPopupOpen = false"></Button>
+			</FlexboxLayout>
+		</StackLayout>
 	</StackLayout>
 </template>
 
 <script>
+
 import Highlights from "~/components/pages/feed/Highlights";
 import ProfileSum from "~/components/pages/feed/ProfileSum";
-import { alert, confirm, prompt, login, action, inputType } from "tns-core-modules/ui/dialogs";
 export default {
 	props: {
 		time: String,
@@ -44,28 +50,37 @@ export default {
 		volume: Number,
 		highlights: Object,
 		profileSum: Object,
+		
 	},
 	data: function(){
 		return{
 			likes: 0,
-			comments: 0,
-			dialogOpen: false
+			numComments: 0,
+			commentPopupOpen: false,
+			currentComment: "",
+			comments: [],
+			users: []
 		}
 	},
 	components: {
 		Highlights: Highlights,
-		ProfileSum: ProfileSum
+		ProfileSum: ProfileSum,
+		
 	},
 	
 	methods: {
         showDialog() {
-			this.dialogOpen = true;
-			this.comments++;
-			
-        },
-        closeDialog() {
-            this.dialogOpen = false;
-        }
+			this.commentPopupOpen = true;
+
+		},
+		
+		addComment() {
+			this.comments.push(this.currentComment);
+			this.users.push("cpjohnston7")
+			this.numComments++;
+			this.commentPopupOpen = false;
+		}
+        
     }
 };
 </script>
@@ -83,43 +98,10 @@ export default {
 		border-top-width: 1;
 		
 	}
-	@keyframes show {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-
-	.dialogOpen .content,
-	.dialogOpen .action-bar {
-		opacity: 0.2;
-	}
-
-	.dialogOpen .dialog-wrapper {
-		visibility: visible;
-		animation-name: show;
-		animation-duration: 0.3s;
-		animation-fill-mode: forwards;
-	}
-
-	.dialog-wrapper {
-		visibility: collapse;
-		opacity: 0;
-	}
-
-	.dialog {
-		border-width: 1 0 1 0;
-		border-color: black;
-		background-color: white;
-		width: 100%;
-		margin-top: 100;
-		padding: 20;
-	}
-
-	.dialog Label {
-		margin: 0 15 15 15;
-		color: black;
-	}
+	
+	
 </style>
+<!--{username: "cpjohnston7", text: this.currentComment}-->
+<!--import Comment from "~/components/pages/feed/Comment";
+Comment: Comment,
+comment: Object,-->
