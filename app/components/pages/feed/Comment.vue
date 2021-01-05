@@ -1,16 +1,13 @@
 <template>
-	<StackLayout>
-		<Label :text="username" marginRight="30rem" color="MidnightBlue"> </Label>
-		<Label :text="comment"></Label>
-        
-	</StackLayout>
+	<FlexboxLayout>
+		<Label :text="`${comment.username}: ${comment.text}`" color="MidnightBlue"/>
+	</FlexboxLayout>
 </template>
 
 <script>
 export default {
 	props: {
-        username: String,
-        comment: String
+		comment: Object
 	}
 };
 </script>
@@ -18,4 +15,3 @@ export default {
 <style scoped lang="scss">
 	
 </style>
-<!--${comment.text}-->

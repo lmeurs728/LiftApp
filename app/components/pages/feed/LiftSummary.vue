@@ -1,12 +1,9 @@
 <template>
 	<StackLayout class="medFont">
-		<ProfileSum :pic="profileSum.pic"
-				 :user="profileSum.user"
-					>
-		</ProfileSum>
+		<ProfileSum :pic="profileSum.pic" :user="profileSum.user"/>
 		
-		<Label :text="`Time: ${time}, Sets: ${sets}, Volume: ${volume}`"></Label>
-		<Label text="Highlights:"></Label>
+		<Label :text="`Time: ${time}, Sets: ${sets}, Volume: ${volume}`"/>
+		<Label text="Highlights:"/>
 		<Highlights :lift="highlights.lift"
 					:reps="highlights.reps"
 					:weight="highlights.weight">
@@ -14,7 +11,7 @@
 		<!-- # of likes and comments-->
 		<FlexboxLayout justifyContent="center">
 			<Label :text="`${likes} likes`" marginRight="100rem"></Label>
-			<Label :text="`${numComments} comments`" @tap="showDialog"></Label>
+			<Label :text="`${numComments} comments`" @tap="showDialog"/>
 		</FlexboxLayout>
 		<!-- like & comment button-->
 		<FlexboxLayout class="borderY fas" justifyContent="center" padding="10rem" backgroundColor="lightBlue">
@@ -26,11 +23,11 @@
 			<FlexboxLayout  justifyContent="center">	
 				<Label text="Banter"/>
 			</FlexboxLayout>
-			<Comment v-for="(comment, index) in comments" :key="'comment'+index" :username="comment.username" :text="comment.comment" />
+			<Comment v-for="(comment, index) in comments" :key="'comment ' + index" :comment="comment" />
 			<TextField v-model="currentComment" hint="" />
 			<FlexboxLayout class="borderyY">	
-				<Button text="Save" @tap="addComment()"></Button>
-				<Button text="Cancel" @tap="commentPopupOpen = false"></Button>
+				<Button text="Save" @tap="addComment()"/>
+				<Button text="Cancel" @tap="commentPopupOpen = false"/>
 			</FlexboxLayout>
 		</StackLayout>
 	</StackLayout>
@@ -66,20 +63,18 @@ export default {
 	},
 	
 	methods: {
-        showDialog() {
+		showDialog() {
 			this.commentPopupOpen = true;
 
 		},
 		
 		addComment() {
-			this.comments.push({username: "cpjohnston7", comment: this.currentComment});
+			this.comments.push({username: "cpjohnston7", text: this.currentComment});
 			this.currentComment = "";
-			this.users.push("cpjohnston7");
 			this.numComments++;
 			this.commentPopupOpen = false;
 		}
-        
-    }
+	}
 };
 </script>
 
