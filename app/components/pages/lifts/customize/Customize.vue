@@ -1,18 +1,30 @@
 <template>
 	<Page>
 		<ActionBar text="Customize"></ActionBar>
-		<StackLayout>
-			<Label text="customize"/>
-			<Button @tap="editWorkout" :text="String.fromCharCode(0xf1e2)" class="fas" />
-		</StackLayout>
+		<ScrollView height="300em">
+			<!-- Editable Workout List -->
+			<StackLayout>
+				<Button v-for="workout in workouts" :key="workout.id" :text="`Edit ${workout.title}`" @tap="editWorkout(workout)"/>
+				<Button text="Create New Workout" @tap="createWorkout" />
+			</StackLayout>
+		</ScrollView>
 	</Page>
 </template>
 
 <script>
 import EditWorkout from "./EditWorkout";
+import Workouts from "~/components/pages/lifts/presaved/Workouts";
 export default {
+	data: function() {
+		return {
+			workouts: Workouts.workouts,
+		}
+	},
 	methods: {
-		editWorkout: function() {
+		editWorkout: function(workout) {
+			this.$navigateTo(EditWorkout, {props: {initWorkout: workout}});
+		},
+		createWorkout: function() {
 			this.$navigateTo(EditWorkout);
 		}
 	}

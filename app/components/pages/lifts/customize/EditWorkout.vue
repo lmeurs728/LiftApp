@@ -1,61 +1,59 @@
 <template>
-	<Page @loaded="prepLifts">
-		<ActionBar><Label :text="`Editting ${workout.title}`"/></ActionBar>
-		<StackLayout>
-			<!-- List of lifts to edit or delete -->
-			<EditLift v-for="(lift, index) in workout.lifts" :key="'EditLift ' + lift.id + lift.title + index"
-				:lift="lift" @remove-lift="removeLift"/>
-		</StackLayout>
+	<Page>
+		<ActionBar><Label :textField="`Editting ${workout.title}`"/></ActionBar>
+		<ScrollView>
+			<StackLayout>
+				<!-- List of lifts to edit or delete -->
+				<EditLift v-for="(lift, index) in workout.lifts" :key="'EditLift ' + lift.id + lift.title + index"
+					:initLift="lift" @remove-lift="removeLift"/>
+				<Button text="Add New Lift" @tap="addLift" />
+				<Button text="Save workout" @tap="saveWorkout" />
+			</StackLayout>
+		</ScrollView>
 	</Page>
 </template>
 
 <script>
+import MainPageRouter from '~/components/mainPageRouter/MainPageRouter';
 import EditLift from "./EditLift";
 export default {
 	components: {
 		EditLift: EditLift,
 	},
 	props: {
-		workout: {
-			type: Object,
-			default: () => ({
-				id: "000001",
-				title: "Workout1",
-				lifts: [
-					{
-						id: "000001",
-						title: "Bench Press",
-						sets: [
-							{
-								id: "00001",
-								previousString: "5 X 95lbs",
-								reps: "",
-								weight: "",
-							},
-							{
-								id: "00002",
-								previousString: "7 X 85lbs",
-								reps: "",
-								weight: "",
-							}
-						],
-					},
-					{
-						id: "000002",
-						title: "Back Squat",
-						sets: [],
-					}
-				]
-			})
+		initWorkout: Object,
+	},
+	data: function() {
+		return {
+			workout: this.initWorkout || {id: "000001", title: "New Workout", lifts: []}
 		}
 	},
 	methods: {
-		prepLifts: function() {
-			this.workout.lifts.map(lift => this.$set(lift, "editMode", false));
-		},
 		removeLift: function(liftID) {
 			this.workout.lifts = this.workout.lifts.filter(lift => lift.id != liftID);
 		},
+		addLift: function() {
+			this.workout.lifts.push(this.getNewEmptyLift())
+		},
+		saveWorkout: function() {
+			this.$navigateTo(MainPageRouter);
+		},
+		getNewEmptyLift: function() {
+			return {
+				id: this.getNewID(),
+				title: "",
+				editMode: true,
+				numSets: 0,
+				numReps: 0,
+				setNumbers: []
+			}
+		},
+		getNewID: function() {
+			var S4 = function() {
+				return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+			};
+			return (S4()+S4()+S4()+S4()+S4());
+		}
 	}
 }
 </script>

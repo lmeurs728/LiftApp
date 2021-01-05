@@ -8,9 +8,9 @@
 		</ActionBar>
 		<StackLayout>
 			<Label text="Username" />
-			<TextField v-model="username" />
+			<TextField v-model="username" autocorrect="false" />
 			<Label text="Password" />
-			<TextField v-model="password" />
+			<TextField v-model="password" secure="true" autocorrect="false" />
 			<Button text="Get to work!" @tap="$navigateTo(MainPageRouter);" />
 		</StackLayout>
 	</Page>

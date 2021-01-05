@@ -36,7 +36,7 @@ export default {
 			this.$navigateTo(StartWorkout, {props: {workout: workout}});
 		},
 		editWorkout: function(workout) {
-			this.$navigateTo(EditWorkout, {props: {workout: workout}});
+			this.$navigateTo(EditWorkout, {props: {initWorkout: workout}});
 		}
 	}
 };
