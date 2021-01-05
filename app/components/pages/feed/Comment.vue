@@ -1,6 +1,8 @@
 <template>
 	<StackLayout>
-		<Label :text="`${username}`"></Label>
+		<Label :text="username" marginRight="30rem" color="MidnightBlue"> </Label>
+		<Label :text="comment"></Label>
+        
 	</StackLayout>
 </template>
 
@@ -8,7 +10,7 @@
 export default {
 	props: {
         username: String,
-        ccomment: String
+        comment: String
 	}
 };
 </script>

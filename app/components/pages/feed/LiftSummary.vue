@@ -26,10 +26,7 @@
 			<FlexboxLayout  justifyContent="center">	
 				<Label text="Banter"/>
 			</FlexboxLayout>
-			<FlexboxLayout v-for="(user, index) in users" :key="'comment'+index" >
-				<Label :text="user"> </Label>
-				<Label :text="comments[index]"></Label>
-			</FlexboxLayout>
+			<Comment v-for="(comment, index) in comments" :key="'comment'+index" :username="comment.username" :text="comment.comment" />
 			<TextField v-model="currentComment" hint="" />
 			<FlexboxLayout class="borderyY">	
 				<Button text="Save" @tap="addComment()"></Button>
@@ -40,7 +37,7 @@
 </template>
 
 <script>
-
+import Comment from "~/components/pages/feed/Comment";
 import Highlights from "~/components/pages/feed/Highlights";
 import ProfileSum from "~/components/pages/feed/ProfileSum";
 export default {
@@ -65,7 +62,7 @@ export default {
 	components: {
 		Highlights: Highlights,
 		ProfileSum: ProfileSum,
-		
+		Comment: Comment,
 	},
 	
 	methods: {
@@ -75,8 +72,9 @@ export default {
 		},
 		
 		addComment() {
-			this.comments.push(this.currentComment);
-			this.users.push("cpjohnston7")
+			this.comments.push({username: "cpjohnston7", comment: this.currentComment});
+			this.currentComment = "";
+			this.users.push("cpjohnston7");
 			this.numComments++;
 			this.commentPopupOpen = false;
 		}
@@ -101,7 +99,7 @@ export default {
 	
 	
 </style>
-<!--{username: "cpjohnston7", text: this.currentComment}-->
+<!--{}-->
 <!--import Comment from "~/components/pages/feed/Comment";
 Comment: Comment,
 comment: Object,-->
