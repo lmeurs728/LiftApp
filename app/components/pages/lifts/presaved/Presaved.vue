@@ -26,12 +26,12 @@
 <script>
 import EditWorkout from "~/components/pages/lifts/customize/EditWorkout";
 import StartWorkout from "./StartWorkout";
-import Workouts from "./Workouts";
+import Datastore from "~/components/shared/Datastore";
 export default {
 	data: function() {
 		return {
 			editMode: false,
-			workouts: Workouts.workouts,
+			workouts: Datastore.users[0].workoutTemplates,
 		}
 	},
 	methods: {

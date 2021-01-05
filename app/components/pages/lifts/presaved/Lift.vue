@@ -12,12 +12,12 @@
 				<Label text="Prev." row="0" col="0" class="grid-item"/>
 				<Label text="Reps" row="0" col="1" class="grid-item"/>
 				<Label text="Pounds" row="0" col="2" class="grid-item"/>
-				<Label v-for="(set, index) in sets" :key="set.id" :text="set.previousString" :row="index + 1" col="0" class="grid-item" />
-				<TextField v-for="(set, index) in sets" :key="set.id + 'reps'" :row="index + 1" col="1" v-model="set.reps" class="grid-item" keyboardType="integer" returnKeyType="done" />
-				<TextField v-for="(set, index) in sets" :key="set.id + 'weight'" :row="index + 1" col="2" v-model="set.weight" class="grid-item" keyboardType="integer" returnKeyType="done" />
+				<Label v-for="(set, index) in sets" :key="index + 'previous'" :text="set.previousString" :row="index + 1" col="0" class="grid-item" />
+				<TextField v-for="(set, index) in sets" :key="index + ' reps'" :row="index + 1" col="1" v-model="set.reps" class="grid-item" keyboardType="integer" returnKeyType="done" />
+				<TextField v-for="(set, index) in sets" :key="index + ' weight'" :row="index + 1" col="2" v-model="set.weight" class="grid-item" keyboardType="integer" returnKeyType="done" />
 			</GridLayout>
 			<FlexboxLayout justifyContent="flex-end">
-				<Label @tap="addSet" :text="String.fromCharCode(0xf055)" :row="sets.length + 1" col="2" class="fas grid-item buttonPadding" marginRight="20"/>
+				<Label @tap="addSet" :text="String.fromCharCode(0xf055)" class="fas grid-item buttonPadding" marginRight="20"/>
 			</FlexboxLayout>
 		</StackLayout>
 		
@@ -33,7 +33,7 @@ export default {
 	data: function() {
 		return {
 			showLiftDetails: this.isFirstLift(),
-			sets: this.lift.sets,
+			sets: this.createEmptySetsArray(),
 		}
 	},
 	computed: {
@@ -44,6 +44,28 @@ export default {
 		},
 	},
 	methods: {
+		createEmptySetsArray: function() {
+			let emptySetsArray = [];
+			if (!this.lift.isFixed) {
+				this.lift.repNumbers.forEach(repNumber => {
+					emptySetsArray.push({
+						reps: repNumber,
+						weight: "",
+						previousString: this.getPreviousString(),
+					})
+				})
+			}
+			else { // fixed
+				for (let i = 0; i < this.lift.numSets; i++) {
+					emptySetsArray.push({
+						reps: this.lift.numReps,
+						weight: "",
+						previousString: this.getPreviousString(),
+					})
+				}
+			}
+			return emptySetsArray;
+		},
 		addSet: function() {
 			this.sets.push(this.getNewEmptySet());
 		},
@@ -64,6 +86,10 @@ export default {
 		isFirstLift: function() {
 			return Boolean(this.liftIndex === 0);
 		},
+		// TODO: implement the previous strings
+		getPreviousString: function() {
+			return "";
+		}
 	}
 }
 </script>

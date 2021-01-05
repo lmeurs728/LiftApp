@@ -16,11 +16,11 @@
 
 <script>
 import EditWorkout from "./EditWorkout";
-import Workouts from "~/components/pages/lifts/presaved/Workouts";
+import Datastore from "~/components/shared/Datastore";
 export default {
 	data: function() {
 		return {
-			workouts: Workouts.workouts,
+			workouts: Datastore.users[0].workoutTemplates,
 		}
 	},
 	methods: {

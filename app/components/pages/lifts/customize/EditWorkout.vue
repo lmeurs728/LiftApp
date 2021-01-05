@@ -7,7 +7,7 @@
 		<ScrollView>
 			<StackLayout>
 				<!-- List of lifts to edit or delete -->
-				<EditLift v-for="(lift, index) in workout.lifts" :key="'EditLift ' + lift.id + lift.title + index"
+				<EditLift v-for="lift in workout.lifts" :key="'EditLift ' + lift.id"
 					:initLift="lift" @remove-lift="removeLift"/>
 				<Button text="Add New Lift" @tap="addLift" />
 				<Button text="Save workout" @tap="saveWorkout" />
@@ -43,12 +43,12 @@ export default {
 		},
 		getNewEmptyLift: function() {
 			return {
+				editMode: true,
 				id: this.getNewID(),
 				title: "",
-				editMode: true,
+				isFixed: true,
 				numSets: "",
 				numReps: "",
-				setNumbers: []
 			}
 		},
 		getNewID: function() {

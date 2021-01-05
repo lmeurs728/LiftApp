@@ -19,7 +19,7 @@
 <script>
 import Lift from "./Lift"
 import MainPageRouter from "~/components/mainPageRouter/MainPageRouter"
-import Workouts from "./Workouts"
+import Datastore from "~/components/shared/Datastore"
 export default {
 	components: {
 		Lift: Lift
@@ -27,7 +27,7 @@ export default {
 	props: {
 		workout: {
 			type: Object,
-			default: Workouts.workouts[0] 
+			default: Datastore.users[0].workoutTemplates[0] 
 		}
 	},
 	data: function() {

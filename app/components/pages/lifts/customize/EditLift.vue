@@ -5,7 +5,7 @@
 <StackLayout class="text-med">
 	<!-- Name with edit icon -->
 	<FlexboxLayout v-if="!editMode">
-		<Label :text="lift.title" class="text-large" />
+		<Label :text="title" class="text-large" />
 		<Label class="far buttonPadding" :text="String.fromCharCode(0xf044)" @tap="editLift" />
 	</FlexboxLayout>
 	<!-- Edit name, delete, or save -->
@@ -24,8 +24,8 @@
 		<!-- List of variable set reps -->
 		<WrapLayout v-if="!isFixed" orientation="horizantal">
 			<Label text="Sets:"/>
-			<TextField v-for="(setNumber, index) in lift.setNumbers" :key="'SetNumber ' + lift.id + index" v-model="lift.setNumbers[index]" keyboardType="integer" returnKeyType="done" hint="0"/>
-			<Label class="fas buttonPadding" @tap="lift.setNumbers.push('')" :text="String.fromCharCode(0xf0fe)"/>
+			<TextField v-for="(repNumber, index) in lift.repNumbers" :key="'RepNumber ' + lift.id + index" v-model="lift.repNumbers[index]" keyboardType="integer" returnKeyType="done" hint="0"/>
+			<Label class="fas buttonPadding" @tap="lift.repNumbers.push('')" :text="String.fromCharCode(0xf0fe)"/>
 		</WrapLayout>
 		<!-- Fixed sets and reps input -->
 		<GridLayout columns="auto, auto, auto" rows="auto, auto" v-else>
@@ -46,10 +46,10 @@ export default {
 	},
 	data: function() {
 		return {
-			title: "",
+			title: this.initLift.title || "",
 			lift: this.initLift,
 			editMode: this.initLift.editMode || false,
-			isFixed: false,
+			isFixed: this.initLift.isFixed,
 		}
 	},
 	computed: {
@@ -62,14 +62,12 @@ export default {
 			this.$emit('remove-lift', liftID);
 		},
 		storeTitle: function() {
-			this.lift.title = this.title;
+			this.$set(this.lift, "title", this.title);
 		},
 		editLift: function() {
-			this.$set(this.lift, "editMode", true);
 			this.editMode = true;
 		},
 		saveChanges: function() {
-			this.$set(this.lift, "editMode", false);
 			this.editMode = false;
 		}
 	}
