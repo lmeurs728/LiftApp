@@ -1,6 +1,6 @@
 <template>
 	<Page>
-		<ActionBar><Label text="Presaved"/></ActionBar>
+		<ActionBar><Label text="Start Workout"/></ActionBar>
 		<StackLayout>
 			<FlexboxLayout justifyContent="flex-end">
 				<Button :text="editMode ? 'Save' : 'Edit'" @tap="editMode = !editMode"/>

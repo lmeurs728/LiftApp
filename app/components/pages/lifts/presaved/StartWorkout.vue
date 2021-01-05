@@ -1,6 +1,11 @@
 <template>
-	<Page>
-		<ActionBar><Label :text="workout.title" /></ActionBar>
+	<Page @loaded="startTimer">
+		<ActionBar>
+			<FlexboxLayout>
+				<Label :text="workout.title" />
+				<Label :text="timer" />
+			</FlexboxLayout>
+		</ActionBar>
 		<ScrollView>
 			<StackLayout>
 				<Lift v-for="lift in workout.lifts" :key="lift.id" :lift="lift" />
@@ -24,7 +29,26 @@ export default {
 			default: Workouts.workouts[0] 
 		}
 	},
+	data: function() {
+		return {
+			seconds: 0,
+		}
+	},
+	computed: {
+		timer: function() {
+			const sec = this.seconds % 60;
+			const seconds = sec > 9 ? sec : `0${sec}`;
+			const min = Math.floor(this.seconds % 3600 / 60);
+			const minutes = min > 9 ? min : `0${min}`;
+			const hrs = Math.floor(this.seconds / 3600);
+			const hours = hrs > 9 ? hrs : `0${hrs}`;
+			return `${hours}:${minutes}:${seconds}`
+		}
+	},
 	methods: {
+		startTimer: function() {
+			setInterval(() => this.seconds++, 1000);
+		},
 		saveWorkout: function() {
 			this.$navigateTo(MainPageRouter);
 		}
