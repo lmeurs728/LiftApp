@@ -10,7 +10,7 @@
 		</Highlights>
 		<!-- # of likes and comments-->
 		<FlexboxLayout justifyContent="center">
-			<Label :text="`${likes} likes`" marginRight="100rem"></Label>
+			<Label :text="`${likes} likes`" marginRight="100rem"/>
 			<Label :text="`${numComments} comments`" @tap="showDialog"/>
 		</FlexboxLayout>
 		<!-- like & comment button-->
