@@ -24,7 +24,7 @@
 				<Label text="Banter"/>
 			</FlexboxLayout>
 			<Comment v-for="(comment, index) in comments" :key="'comment ' + index" :comment="comment" />
-			<TextField v-model="currentComment" hint="" />
+			<TextField v-model="currentComment" hint="" returnType="done" />
 			<FlexboxLayout class="borderyY">	
 				<Button text="Save" @tap="addComment()"/>
 				<Button text="Cancel" @tap="commentPopupOpen = false"/>

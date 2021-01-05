@@ -1,6 +1,9 @@
 <template>
 	<Page>
-		<ActionBar><Label :textField="`Editting ${workout.title}`"/></ActionBar>
+		<ActionBar>
+			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
+			<Label :text="`Editting ${workout.title}`"/>
+		</ActionBar>
 		<ScrollView>
 			<StackLayout>
 				<!-- List of lifts to edit or delete -->
@@ -43,8 +46,8 @@ export default {
 				id: this.getNewID(),
 				title: "",
 				editMode: true,
-				numSets: 0,
-				numReps: 0,
+				numSets: "",
+				numReps: "",
 				setNumbers: []
 			}
 		},

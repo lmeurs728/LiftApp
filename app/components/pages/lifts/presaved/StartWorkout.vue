@@ -1,6 +1,7 @@
 <template>
 	<Page @loaded="startTimer">
 		<ActionBar>
+			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
 			<FlexboxLayout>
 				<Label :text="workout.title" />
 				<Label :text="timer" />
@@ -8,7 +9,7 @@
 		</ActionBar>
 		<ScrollView>
 			<StackLayout>
-				<Lift v-for="lift in workout.lifts" :key="lift.id" :lift="lift" />
+				<Lift v-for="(lift, index) in workout.lifts" :key="lift.id" :lift="lift" :liftIndex="index" />
 				<Button class="my-button" text="Save" @tap="saveWorkout" />
 			</StackLayout>
 		</ScrollView>

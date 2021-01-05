@@ -1,6 +1,9 @@
 <template>
 	<Page>
-		<ActionBar><Label text="Start Workout"/></ActionBar>
+		<ActionBar>
+			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
+			<Label text="Start Workout"/>
+		</ActionBar>
 		<StackLayout>
 			<FlexboxLayout justifyContent="flex-end">
 				<Button :text="editMode ? 'Save' : 'Edit'" @tap="editMode = !editMode"/>
