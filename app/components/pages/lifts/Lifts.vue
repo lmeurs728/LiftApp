@@ -1,11 +1,11 @@
 <template>
 	<StackLayout>
 		<Label text="Workouts: " fontSize="22"/>
-		<Button class="fas" :text="String.fromCharCode(0xf0c7) + ' Presaved'"
+		<Button class="fas" :text="'Presaved  ' + String.fromCharCode(0xf0c7)"
 			@tap="$navigateTo(Presaved)" />
-		<Button class="fas" :text="String.fromCharCode(0xf6e3) + ' Customize'"
+		<Button class="fas" :text="'Customize  ' + String.fromCharCode(0xf6e3)"
 			@tap="$navigateTo(Customize)" />
-		<Button class="fas" :text="String.fromCharCode(0xf002) + ' Find'"
+		<Button class="fas" :text="'Find  ' + String.fromCharCode(0xf002)"
 			@tap="$navigateTo(Find)" />
 	</StackLayout>
 </template>

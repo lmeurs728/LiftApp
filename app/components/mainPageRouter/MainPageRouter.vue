@@ -30,9 +30,15 @@ export default {
 		MyProgress,
 		Friends,
 	},
+	props: {
+		initSelectedIndex: {
+			type: Number,
+			default: 0,
+		}
+	},
 	data: function() {
 		return {
-			selectedIndex: 0,
+			selectedIndex: this.initSelectedIndex,
 		}
 	},
 	computed: {
