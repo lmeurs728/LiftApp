@@ -5,23 +5,42 @@
 			<Label :text="`${individualLiftHistory[0].title} History`" />
 		</ActionBar>
 		<StackLayout>
-			<Label text="Chart Here" />
+			<RadCartesianChart>
+				<CategoricalAxis v-tkCartesianHorizontalAxis />
+				<LinearAxis v-tkCartesianVerticalAxis />
+				<LineSeries v-tkCartesianSeries
+					:items="liftHistory"
+					categoryProperty="Country"
+					valueProperty="Amount" />
+			</RadCartesianChart>
 		</StackLayout>
 	</Page>
 	
 </template>
 
 <script>
+import { ObservableArray } from 'tns-core-modules/data/observable-array';
+
 export default {
 	props: {
 		individualLiftHistory: Array
 	},
 	data: function(){
 		return {
-			
+			liftHistory: this.getLiftHistory()
 		}
 	},
-	
+	methods: {
+		getLiftHistory: function() {
+			return new ObservableArray([
+				{ Country: 'Germany', Amount: 15, SecondVal: 14, ThirdVal: 24, Impact: 0, Year: 0 },
+				{ Country: 'France', Amount: 13, SecondVal: 23, ThirdVal: 25, Impact: 0, Year: 0 },
+				{ Country: 'Bulgaria', Amount: 24, SecondVal: 17, ThirdVal: 23, Impact: 0, Year: 0 },
+				{ Country: 'Spain', Amount: 11, SecondVal: 19, ThirdVal: 24, Impact: 0, Year: 0 },
+				{ Country: 'USA', Amount: 18, SecondVal: 8, ThirdVal: 21, Impact: 0, Year: 0 }
+			]);
+		}
+	}
 };
 </script>
 
