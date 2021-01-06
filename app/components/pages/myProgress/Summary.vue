@@ -1,13 +1,17 @@
 <template>
-	<StackLayout>
-		<Button text="Summary" @tap="navigateToSummary" />
-		<Button text="Individual Lift" @tap="navigateToIndividualLifts" />
-	</StackLayout>
+	<Page>
+		<ActionBar>
+			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
+			<Label text="Summary" />
+		</ActionBar>
+		<StackLayout>
+			<Label text="yolo" />
+		</StackLayout>
+	</Page>
 </template>
 
 <script>
-import Summary from "./Summary"
-import IndividualLifts from "./IndividualLifts"
+
 export default {
 	methods: {
 		navigateToSummary: function() {
