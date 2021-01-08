@@ -1,4 +1,5 @@
 <!-- TODO: tab view to sort by time -->
+<!-- TODO: support for IOS -->
 <template>
 	<Page >
 		<ActionBar>
