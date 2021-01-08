@@ -1,5 +1,5 @@
 // All IDs should be 6 digits
-const { DateTime } = require("luxon");
+import DateTime from 'luxon/src/datetime.js'
 export default {
 	users: [
 		{
@@ -16,8 +16,9 @@ export default {
 						{
 							id: "000001",
 							title: "Bench Press",
+							isUpper: true,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							previousSets: [
 								{
 									reps: "",
@@ -32,8 +33,9 @@ export default {
 						{
 							id: "000002",
 							title: "Shoulder Press",
+							isUpper: true,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							previousSets: [],
 						}
 					]
@@ -45,9 +47,10 @@ export default {
 						{
 							id: "000003",
 							title: "Deadlift",
+							isUpper: true,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
+							numSets: 5,
+							numReps: 5,
 							previousSets: [
 								{
 									reps: "",
@@ -62,9 +65,10 @@ export default {
 						{
 							id: "000004",
 							title: "Rows",
+							isUpper: true,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
+							numSets: 5,
+							numReps: 5,
 							previousSets: [],
 						}
 					]
@@ -76,8 +80,9 @@ export default {
 						{
 							id: "000005",
 							title: "Squats",
+							isUpper: false,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							previousSets: [
 								{
 									reps: "",
@@ -92,9 +97,10 @@ export default {
 						{
 							id: "000006",
 							title: "Hip Thrust ;)",
+							isUpper: false,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
+							numSets: 5,
+							numReps: 5,
 							previousSets: [],
 						}
 					]
@@ -104,69 +110,294 @@ export default {
 				{
 					name: "Ligity Leg Workout",
 					templateID: "000003",
+					dateTime: DateTime.local(2021, 1, 4, 13, 45, 10),
 					lifts: [
 						{
 							id: "000005",
 							title: "Squats",
+							isUpper: false,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							sets: [
 								{
-									reps: "7",
-									weight: "100",
+									reps: 7,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "3",
-									weight: "100",
+									reps: 3,
+									weight: 100,
 								},
 								{
-									reps: "7",
-									weight: "100",
+									reps: 7,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "3",
-									weight: "100",
+									reps: 3,
+									weight: 100,
 								},
 								{
-									reps: "20",
-									weight: "100",
+									reps: 20,
+									weight: 100,
 								},
 							],
 						},
 						{
 							id: "000006",
 							title: "Hip Thrust ;)",
+							isUpper: false,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
-							previousSets: [
+							numSets: 5,
+							numReps: 5,
+							sets: [
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 80,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 80,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 80,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 80,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 80,
+								},
+							],
+						}
+					],
+				},
+				{
+					name: "Ligity Leg Workout",
+					templateID: "000003",
+					dateTime: DateTime.local(2021, 1, 5, 13, 45, 10),
+					lifts: [
+						{
+							id: "000005",
+							title: "Squats",
+							isUpper: false,
+							isFixed: false,
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
+							sets: [
+								{
+									reps: 7,
+									weight: 150,
+								},
+								{
+									reps: 5,
+									weight: 150,
+								},
+								{
+									reps: 3,
+									weight: 150,
+								},
+								{
+									reps: 7,
+									weight: 150,
+								},
+								{
+									reps: 5,
+									weight: 150,
+								},
+								{
+									reps: 3,
+									weight: 150,
+								},
+								{
+									reps: 20,
+									weight: 150,
+								},
+							],
+						},
+						{
+							id: "000006",
+							title: "Hip Thrust ;)",
+							isUpper: false,
+							isFixed: true,
+							numSets: 5,
+							numReps: 5,
+							sets: [
+								{
+									reps: 5,
+									weight: 150,
+								},
+								{
+									reps: 5,
+									weight: 150,
+								},
+								{
+									reps: 5,
+									weight: 150,
+								},
+								{
+									reps: 5,
+									weight: 150,
+								},
+								{
+									reps: 5,
+									weight: 150,
+								},
+							],
+						}
+					],
+				},
+				{
+					name: "Ligity Leg Workout",
+					templateID: "000003",
+					dateTime: DateTime.local(2021, 1, 6, 13, 45, 10),
+					lifts: [
+						{
+							id: "000005",
+							title: "Squats",
+							isUpper: false,
+							isFixed: false,
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
+							sets: [
+								{
+									reps: 7,
+									weight: 120,
+								},
+								{
+									reps: 5,
+									weight: 120,
+								},
+								{
+									reps: 3,
+									weight: 120,
+								},
+								{
+									reps: 7,
+									weight: 120,
+								},
+								{
+									reps: 5,
+									weight: 120,
+								},
+								{
+									reps: 3,
+									weight: 120,
+								},
+								{
+									reps: 20,
+									weight: 120,
+								},
+							],
+						},
+						{
+							id: "000006",
+							title: "Hip Thrust ;)",
+							isUpper: false,
+							isFixed: true,
+							numSets: 5,
+							numReps: 5,
+							sets: [
+								{
+									reps: 5,
+									weight: 140,
+								},
+								{
+									reps: 5,
+									weight: 140,
+								},
+								{
+									reps: 5,
+									weight: 140,
+								},
+								{
+									reps: 5,
+									weight: 140,
+								},
+								{
+									reps: 5,
+									weight: 140,
+								},
+							],
+						}
+					],
+				},
+				{
+					name: "Ligity Leg Workout",
+					templateID: "000003",
+					dateTime: DateTime.local(2021, 1, 7, 13, 45, 10),
+					lifts: [
+						{
+							id: "000005",
+							title: "Squats",
+							isUpper: false,
+							isFixed: false,
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
+							sets: [
+								{
+									reps: 7,
+									weight: 200,
+								},
+								{
+									reps: 5,
+									weight: 200,
+								},
+								{
+									reps: 3,
+									weight: 200,
+								},
+								{
+									reps: 7,
+									weight: 200,
+								},
+								{
+									reps: 5,
+									weight: 200,
+								},
+								{
+									reps: 3,
+									weight: 200,
+								},
+								{
+									reps: 20,
+									weight: 200,
+								},
+							],
+						},
+						{
+							id: "000006",
+							title: "Hip Thrust ;)",
+							isUpper: false,
+							isFixed: true,
+							numSets: 5,
+							numReps: 5,
+							sets: [
+								{
+									reps: 5,
+									weight: 180,
+								},
+								{
+									reps: 5,
+									weight: 180,
+								},
+								{
+									reps: 5,
+									weight: 180,
+								},
+								{
+									reps: 5,
+									weight: 180,
+								},
+								{
+									reps: 5,
+									weight: 180,
 								},
 							],
 						}
@@ -188,8 +419,9 @@ export default {
 						{
 							id: "000001",
 							title: "Bench Press",
+							isUpper: true,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							previousSets: [
 								{
 									reps: "",
@@ -204,8 +436,9 @@ export default {
 						{
 							id: "000002",
 							title: "Shoulder Press",
+							isUpper: true,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							previousSets: [],
 						}
 					]
@@ -217,9 +450,10 @@ export default {
 						{
 							id: "000003",
 							title: "Deadlift",
+							isUpper: true,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
+							numSets: 5,
+							numReps: 5,
 							previousSets: [
 								{
 									reps: "",
@@ -234,9 +468,10 @@ export default {
 						{
 							id: "000004",
 							title: "Rows",
+							isUpper: true,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
+							numSets: 5,
+							numReps: 5,
 							previousSets: [],
 						}
 					]
@@ -248,8 +483,9 @@ export default {
 						{
 							id: "000005",
 							title: "Squats",
+							isUpper: false,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							previousSets: [
 								{
 									reps: "",
@@ -264,9 +500,10 @@ export default {
 						{
 							id: "000006",
 							title: "Hip Thrust ;)",
+							isUpper: false,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
+							numSets: 5,
+							numReps: 5,
 							previousSets: [],
 						}
 					]
@@ -280,58 +517,60 @@ export default {
 						{
 							id: "000003",
 							title: "Deadlift",
+							isUpper: true,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
-							previousSets: [
+							numSets: 5,
+							numReps: 5,
+							sets: [
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 							],
 						},
 						{
 							id: "000004",
 							title: "Rows",
+							isUpper: true,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
-							previousSets: [
+							numSets: 5,
+							numReps: 5,
+							sets: [
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 							],
 						}
@@ -353,8 +592,9 @@ export default {
 						{
 							id: "000001",
 							title: "Bench Press",
+							isUpper: true,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							previousSets: [
 								{
 									reps: "",
@@ -369,8 +609,9 @@ export default {
 						{
 							id: "000002",
 							title: "Shoulder Press",
+							isUpper: true,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							previousSets: [],
 						}
 					]
@@ -382,9 +623,10 @@ export default {
 						{
 							id: "000003",
 							title: "Deadlift",
+							isUpper: true,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
+							numSets: 5,
+							numReps: 5,
 							previousSets: [
 								{
 									reps: "",
@@ -399,9 +641,10 @@ export default {
 						{
 							id: "000004",
 							title: "Rows",
+							isUpper: true,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
+							numSets: 5,
+							numReps: 5,
 							previousSets: [],
 						}
 					]
@@ -413,8 +656,9 @@ export default {
 						{
 							id: "000005",
 							title: "Squats",
+							isUpper: false,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							previousSets: [
 								{
 									reps: "",
@@ -429,9 +673,10 @@ export default {
 						{
 							id: "000006",
 							title: "Hip Thrust ;)",
+							isUpper: false,
 							isFixed: true,
-							numSets: "5",
-							numReps: "5",
+							numSets: 5,
+							numReps: 5,
 							previousSets: [],
 						}
 					]
@@ -445,72 +690,74 @@ export default {
 						{
 							id: "000001",
 							title: "Bench Press",
+							isUpper: true,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							sets: [
 								{
-									reps: "7",
-									weight: "100",
+									reps: 7,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "3",
-									weight: "100",
+									reps: 3,
+									weight: 100,
 								},
 								{
-									reps: "7",
-									weight: "100",
+									reps: 7,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "3",
-									weight: "100",
+									reps: 3,
+									weight: 100,
 								},
 								{
-									reps: "20",
-									weight: "100",
+									reps: 20,
+									weight: 100,
 								},
 							],
 						},
 						{
 							id: "000002",
 							title: "Shoulder Press ;)",
+							isUpper: true,
 							isFixed: false,
-							repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+							repNumbers: [7, 5, 3, 7, 5, 3, 20],
 							sets: [
 								{
-									reps: "7",
-									weight: "100",
+									reps: 7,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "3",
-									weight: "100",
+									reps: 3,
+									weight: 100,
 								},
 								{
-									reps: "7",
-									weight: "100",
+									reps: 7,
+									weight: 100,
 								},
 								{
-									reps: "5",
-									weight: "100",
+									reps: 5,
+									weight: 100,
 								},
 								{
-									reps: "3",
-									weight: "100",
+									reps: 3,
+									weight: 100,
 								},
 								{
-									reps: "20",
-									weight: "100",
+									reps: 20,
+									weight: 100,
 								},
 							],
 						}
@@ -527,8 +774,9 @@ export default {
 				{
 					id: "000001",
 					title: "Bench Press",
+					isUpper: true,
 					isFixed: false,
-					repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+					repNumbers: [7, 5, 3, 7, 5, 3, 20],
 					previousSets: [
 						{
 							reps: "",
@@ -543,8 +791,9 @@ export default {
 				{
 					id: "000002",
 					title: "Shoulder Press",
+					isUpper: true,
 					isFixed: false,
-					repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+					repNumbers: [7, 5, 3, 7, 5, 3, 20],
 					previousSets: [],
 				}
 			]
@@ -556,9 +805,10 @@ export default {
 				{
 					id: "000003",
 					title: "Deadlift",
+					isUpper: true,
 					isFixed: true,
-					numSets: "5",
-					numReps: "5",
+					numSets: 5,
+					numReps: 5,
 					previousSets: [
 						{
 							reps: "",
@@ -573,9 +823,10 @@ export default {
 				{
 					id: "000004",
 					title: "Rows",
+					isUpper: true,
 					isFixed: true,
-					numSets: "5",
-					numReps: "5",
+					numSets: 5,
+					numReps: 5,
 					previousSets: [],
 				}
 			]
@@ -587,8 +838,9 @@ export default {
 				{
 					id: "000005",
 					title: "Squats",
+					isUpper: false,
 					isFixed: false,
-					repNumbers: ["7", "5", "3", "7", "5", "3", "20"],
+					repNumbers: [7, 5, 3, 7, 5, 3, 20],
 					previousSets: [
 						{
 							reps: "",
@@ -603,9 +855,10 @@ export default {
 				{
 					id: "000006",
 					title: "Hip Thrust ;)",
+					isUpper: false,
 					isFixed: true,
-					numSets: "5",
-					numReps: "5",
+					numSets: 5,
+					numReps: 5,
 					previousSets: [],
 				}
 			]

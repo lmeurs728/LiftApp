@@ -24,17 +24,21 @@ export default {
 	},
 	methods: {
 		prepareAllLifts: function() {
+			this.allLifts = [];
+			this.allUniqueLifts = [];
 			this.workoutHistory.forEach(workout => {
-				workout.lifts.forEach(lift => {
-					this.allLifts.push(lift);
+				workout.lifts.forEach((lift, i, lifts) => {
+					lifts[i].dateTime = workout.dateTime;
+					this.allLifts.push(lifts[i]);
 					// Only add to unique lifts if not already in the array
 					if (!this.allUniqueLifts.map(uniqueLift => uniqueLift.id).includes(lift.id)) {
-						this.allUniqueLifts.push(lift);
+						this.allUniqueLifts.push(lifts[i]);
 					}
 				})
 			})
 		},
 		navigateToIndividualLift: function(liftID) {
+			console.dir(this.allLifts.filter(lift => lift.id === liftID).map(lift => lift.title))
 			this.$navigateTo(IndividualLift, {props:{individualLiftHistory: this.allLifts.filter(lift => lift.id === liftID)}});
 		},
 	}
