@@ -40,8 +40,6 @@ export default {
 	},
 	data: function(){
 		return {
-			volumeProgress: this.getVolumeProgress(),
-			oneRepMaxProgress: this.getOneRepMaxProgress(),
 			selectedItem: 1,
 		}
 	},
