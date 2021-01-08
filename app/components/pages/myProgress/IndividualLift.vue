@@ -40,7 +40,7 @@ export default {
 	},
 	data: function(){
 		return {
-			selectedItem: 1,
+			selectedItem: 0,
 		}
 	},
 	computed: {
