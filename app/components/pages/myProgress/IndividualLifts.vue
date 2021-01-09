@@ -14,6 +14,7 @@
 <script>
 import Datastore from "~/components/shared/Datastore"
 import IndividualLift from "./IndividualLift"
+import { isIOS } from "tns-core-modules/platform";
 export default {
 	data: function(){
 		return {
@@ -38,8 +39,9 @@ export default {
 			})
 		},
 		navigateToIndividualLift: function(liftID) {
-			console.dir(this.allLifts.filter(lift => lift.id === liftID).map(lift => lift.title))
-			this.$navigateTo(IndividualLift, {props:{individualLiftHistory: this.allLifts.filter(lift => lift.id === liftID)}});
+			if (!isIOS) {
+				this.$navigateTo(IndividualLift, {props:{individualLiftHistory: this.allLifts.filter(lift => lift.id === liftID)}});
+			}
 		},
 	}
 };

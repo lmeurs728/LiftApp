@@ -62,7 +62,7 @@ export default {
 			this.$emit('remove-lift', liftID);
 		},
 		storeTitle: function() {
-			this.$set(this.lift, "title", this.title);
+			this.$set(this.lift, "title", this.title ? this.title : "Lift");
 		},
 		editLift: function() {
 			this.editMode = true;
