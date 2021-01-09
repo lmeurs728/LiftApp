@@ -12,7 +12,7 @@
 			<TabContentItem><Feed/></TabContentItem>
 			<TabContentItem><Lifts/></TabContentItem>
 			<TabContentItem><MyProgress/></TabContentItem>
-			<TabContentItem><Friends/></TabContentItem>
+			<TabContentItem><Profile/></TabContentItem>
 		</BottomNavigation>
 	</Page>
 </template>
@@ -21,14 +21,14 @@
 import Feed from "~/components/pages/feed/Feed";
 import Lifts from "~/components/pages/lifts/Lifts";
 import MyProgress from "~/components/pages/myProgress/MyProgress";
-import Friends from "~/components/pages/friends/Friends";
+import Profile from "~/components/pages/profile/Profile";
 
 export default {
 	components: {
 		Feed,
 		Lifts,
 		MyProgress,
-		Friends,
+		Profile,
 	},
 	data: function() {
 		return {
@@ -45,7 +45,7 @@ export default {
 				case 2:
 					return "My Progress";
 				case 3:
-					return "Friends";
+					return "Profile";
 				default:
 					return "Feed";
 			}

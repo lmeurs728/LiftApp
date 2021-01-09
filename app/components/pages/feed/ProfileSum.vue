@@ -1,8 +1,8 @@
 <template>
 	<FlexboxLayout>
+		<Label :text="`${user}`"></Label>
         <Image :src="`${pic}`" stretch="aspectFill" width="20rem" height="20rem">
         </Image>
-        <Label :text="`${user}`"></Label>
 	</FlexboxLayout>
 </template>
 
