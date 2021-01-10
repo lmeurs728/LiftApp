@@ -1,9 +1,15 @@
 <template>
-	<Page>
-		<ActionBar><Label :text="workout.title" /></ActionBar>
+	<Page @loaded="startTimer">
+		<ActionBar>
+			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
+			<FlexboxLayout>
+				<Label :text="workout.title" />
+				<Label :text="timer" />
+			</FlexboxLayout>
+		</ActionBar>
 		<ScrollView>
 			<StackLayout>
-				<Lift v-for="lift in workout.lifts" :key="lift.id" :lift="lift" />
+				<Lift v-for="(lift, index) in workout.lifts" :key="lift.id" :lift="lift" :liftIndex="index" />
 				<Button class="my-button" text="Save" @tap="saveWorkout" />
 			</StackLayout>
 		</ScrollView>
@@ -13,7 +19,7 @@
 <script>
 import Lift from "./Lift"
 import MainPageRouter from "~/components/mainPageRouter/MainPageRouter"
-import Workouts from "./Workouts"
+import Datastore from "~/components/shared/Datastore"
 export default {
 	components: {
 		Lift: Lift
@@ -21,10 +27,29 @@ export default {
 	props: {
 		workout: {
 			type: Object,
-			default: Workouts.workouts[0] 
+			default: Datastore.users[0].workoutTemplates[0] 
+		}
+	},
+	data: function() {
+		return {
+			seconds: 0,
+		}
+	},
+	computed: {
+		timer: function() {
+			const sec = this.seconds % 60;
+			const seconds = sec > 9 ? sec : `0${sec}`;
+			const min = Math.floor(this.seconds % 3600 / 60);
+			const minutes = min > 9 ? min : `0${min}`;
+			const hrs = Math.floor(this.seconds / 3600);
+			const hours = hrs > 9 ? hrs : `0${hrs}`;
+			return `${hours}:${minutes}:${seconds}`
 		}
 	},
 	methods: {
+		startTimer: function() {
+			setInterval(() => this.seconds++, 1000);
+		},
 		saveWorkout: function() {
 			this.$navigateTo(MainPageRouter);
 		}

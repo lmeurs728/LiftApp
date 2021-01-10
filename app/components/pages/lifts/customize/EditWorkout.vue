@@ -1,10 +1,13 @@
 <template>
 	<Page>
-		<ActionBar><Label :textField="`Editting ${workout.title}`"/></ActionBar>
+		<ActionBar>
+			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
+			<Label :text="`Editting ${workout.title}`"/>
+		</ActionBar>
 		<ScrollView>
 			<StackLayout>
 				<!-- List of lifts to edit or delete -->
-				<EditLift v-for="(lift, index) in workout.lifts" :key="'EditLift ' + lift.id + lift.title + index"
+				<EditLift v-for="lift in workout.lifts" :key="'EditLift ' + lift.id"
 					:initLift="lift" @remove-lift="removeLift"/>
 				<Button text="Add New Lift" @tap="addLift" />
 				<Button text="Save workout" @tap="saveWorkout" />
@@ -36,23 +39,23 @@ export default {
 			this.workout.lifts.push(this.getNewEmptyLift())
 		},
 		saveWorkout: function() {
-			this.$navigateTo(MainPageRouter);
+			this.$navigateTo(MainPageRouter, {props: {initSelectedIndex: 1}});
 		},
 		getNewEmptyLift: function() {
 			return {
+				editMode: true,
 				id: this.getNewID(),
 				title: "",
-				editMode: true,
-				numSets: 0,
-				numReps: 0,
-				setNumbers: []
+				isFixed: true,
+				numSets: "",
+				numReps: "",
 			}
 		},
 		getNewID: function() {
 			var S4 = function() {
-				return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+				return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
 			};
-			return (S4()+S4()+S4()+S4()+S4());
+			return (S4() + S4() + S4() + S4() + S4());
 		}
 	}
 }

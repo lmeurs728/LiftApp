@@ -1,6 +1,9 @@
 <template>
 	<Page>
-		<ActionBar text="Customize"></ActionBar>
+		<ActionBar>
+			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
+			<Label text="Customize"/>
+		</ActionBar>
 		<ScrollView height="300em">
 			<!-- Editable Workout List -->
 			<StackLayout>
@@ -13,11 +16,11 @@
 
 <script>
 import EditWorkout from "./EditWorkout";
-import Workouts from "~/components/pages/lifts/presaved/Workouts";
+import Datastore from "~/components/shared/Datastore";
 export default {
 	data: function() {
 		return {
-			workouts: Workouts.workouts,
+			workouts: Datastore.users[0].workoutTemplates,
 		}
 	},
 	methods: {

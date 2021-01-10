@@ -1,17 +1,15 @@
 <template>
 	<Page>
 		<ActionBar title="Login">
-			<FlexboxLayout>
-				<Button text="Back" @tap="$navigateBack()" />
-				<Label text="Login" />
-			</FlexboxLayout>
+			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
+			<Label text="Login" />
 		</ActionBar>
 		<StackLayout>
 			<Label text="Username" />
-			<TextField v-model="username" autocorrect="false" />
+			<TextField v-model="username" autocorrect="false" keyboardType="email" returnKeyType="next" />
 			<Label text="Password" />
-			<TextField v-model="password" secure="true" autocorrect="false" />
-			<Button text="Get to work!" @tap="$navigateTo(MainPageRouter);" />
+			<TextField v-model="password" secure="true" autocorrect="false" returnKeyType="go" @returnPress="navigateToFeed" />
+			<Button text="Get to work!" @tap="navigateToFeed" />
 		</StackLayout>
 	</Page>
 </template>
@@ -23,7 +21,11 @@ export default {
 		return {
 			username: "",
 			password: "",
-			MainPageRouter: MainPageRouter,
+		}
+	},
+	methods: {
+		navigateToFeed: function() {
+			this.$navigateTo(MainPageRouter);
 		}
 	}
 };
