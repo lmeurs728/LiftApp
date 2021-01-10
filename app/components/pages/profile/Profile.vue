@@ -1,8 +1,8 @@
 <template>
 	<StackLayout>
 		<MyProfile
-			:myUser="myprofile.myUser"
-			:myPic="myprofile.myPic">
+			:myUser="myUser"
+			:myPic="myPic">
 		</MyProfile>
 		<Button text="Friends"></Button>
 		<Button text="My Workouts"></Button>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import MyProfile from "~/components/pages/profile/Profile";
+import MyProfile from "~/components/pages/profile/MyProfile";
 export default {
 	props: {
 		myprofile: Object,
