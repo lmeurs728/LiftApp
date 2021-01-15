@@ -1,6 +1,12 @@
 <template>
 	<Page>
-		<ActionBar><Label :text="pageTitle"/></ActionBar>
+		<ActionBar class="fas" :title="pageTitle">
+			<FlexboxLayout  justifyContent="space-around">
+				<Label :text="pageTitle" alignSelf="center" width="70" height="70"></Label>
+				<Button :text="String.fromCharCode(0xf2bd)" alignSelf="flex-end" width="70" height="70" @tap="this.$navigateTo(Profile.vue)"></Button>
+			</FlexboxLayout>
+		</ActionBar>
+		
 		<BottomNavigation @selectedIndexChanged="changeView($event)" :selectedIndex="selectedIndex" class="bottom-nav">
 			<TabStrip class="fas">
 				<TabStripItem><Label :text="String.fromCharCode(0xf015)"/></TabStripItem>
