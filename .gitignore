@@ -32,3 +32,10 @@ typings/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Config files
+nativescript.config.ts
+package-lock.json
+package.json
+webpack.config.js
+_backup.json
