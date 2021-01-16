@@ -14,9 +14,9 @@
 			<Label :text="`${numComments} comments`" @tap="showDialog"/>
 		</FlexboxLayout>
 		<!-- like & comment button-->
-		<FlexboxLayout class="borderY fas" justifyContent="center" padding="10rem" backgroundColor="lightBlue">
-			<Button :text="String.fromCharCode(0xf164)" fontSize="30rem" marginRight="100rem" @tap="likes++"/>
-			<Button :text="String.fromCharCode(0xf27a)" fontSize="30rem" @tap="showDialog"/>
+		<FlexboxLayout class="borderY fas" justifyContent="center" padding="10rem" backgroundColor="white">
+			<Label :text="String.fromCharCode(0xf164)" fontSize="20rem" marginRight="120rem" @tap="likes++"/>
+			<Label :text="String.fromCharCode(0xf27a)" fontSize="20rem" @tap="showDialog"/>
 		</FlexboxLayout>
 		<!-- comment popup layout-->
 		<StackLayout v-if="commentPopupOpen">

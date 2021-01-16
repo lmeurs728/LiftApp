@@ -1,8 +1,7 @@
 <template>
 <ScrollView orientation="Vertical">
 	<StackLayout>
-		<Button text="View Friends"></Button>
-		<Button text="Find Friends"></Button>
+		<Textfield hint="Search for friends..." returnType="done"></Textfield>
 	</StackLayout>
 </ScrollView>
 </template>
