@@ -27,7 +27,7 @@
 			<TextField v-model="currentComment" hint="" returnType="done" />
 			<FlexboxLayout class="borderyY">	
 				<Button text="Save" @tap="addComment()"/>
-				<Button text="Close" @tap="commentPopupOpen = false"/>
+				<Button text="Cancel" @tap="commentPopupOpen = false"/>
 			</FlexboxLayout>
 		</StackLayout>
 	</StackLayout>
@@ -72,7 +72,7 @@ export default {
 			this.comments.push({username: "cpjohnston7", text: this.currentComment});
 			this.currentComment = "";
 			this.numComments++;
-			
+			this.commentPopupOpen = false;
 		}
 	}
 };

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import MyProfile from "~/components/pages/profile/MyProfile";
+import MyProfile from "~/components/pages/profile/Profile";
 export default {
 	props: {
 		myprofile: Object,
