@@ -1,7 +1,8 @@
 <template>
 <ScrollView orientation="Vertical">
 	<StackLayout>
-		<Label> text="Friends" </Label>
+		<Button text="View Friends"></Button>
+		<Button text="Find Friends"></Button>
 	</StackLayout>
 </ScrollView>
 </template>

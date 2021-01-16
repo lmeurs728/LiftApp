@@ -1,11 +1,16 @@
 <template>
 	<Page>
-		<ActionBar class="fas" :title="pageTitle">
-			<FlexboxLayout  justifyContent="space-around">
-				<Label :text="pageTitle" alignSelf="center" width="70" height="70"></Label>
-				<Button :text="String.fromCharCode(0xf2bd)" alignSelf="flex-end" width="70" height="70" @tap="this.$navigateTo(Profile.vue)"></Button>
-			</FlexboxLayout>
-		</ActionBar>
+		<ActionBar :title="pageTitle">
+			<ActionItem @tap="navigateToProfile()"
+				ios.systemIcon="8" ios.position="left"
+				android.systemIcon="sym_contact_card" android.position="actionBar"></ActionItem>
+        
+    	</ActionBar>
+		<!--<ActionBar class="fas">
+				<Label :text="pageTitle"></Label>
+				<NavigationButton :text="String.fromCharCode(0xf2bd)" width="70" height="70" @tap="navigateToProfile()"></NavigationButton>
+			
+		</ActionBar>-->
 		
 		<BottomNavigation @selectedIndexChanged="changeView($event)" :selectedIndex="selectedIndex" class="bottom-nav">
 			<TabStrip class="fas">
@@ -18,7 +23,7 @@
 			<TabContentItem><Feed/></TabContentItem>
 			<TabContentItem><Lifts/></TabContentItem>
 			<TabContentItem><MyProgress/></TabContentItem>
-			<TabContentItem><Profile/></TabContentItem>
+			<TabContentItem><Friends/></TabContentItem>
 		</BottomNavigation>
 	</Page>
 </template>
@@ -28,6 +33,7 @@ import Feed from "~/components/pages/feed/Feed";
 import Lifts from "~/components/pages/lifts/Lifts";
 import MyProgress from "~/components/pages/myProgress/MyProgress";
 import Profile from "~/components/pages/profile/Profile";
+import Friends from "~/components/pages/friends/Friends";
 
 export default {
 	components: {
@@ -35,6 +41,7 @@ export default {
 		Lifts,
 		MyProgress,
 		Profile,
+		Friends,
 	},
 	props: {
 		initSelectedIndex: {
@@ -57,7 +64,7 @@ export default {
 				case 2:
 					return "My Progress";
 				case 3:
-					return "Profile";
+					return "Friends";
 				default:
 					return "Feed";
 			}
@@ -66,9 +73,13 @@ export default {
 	methods: {
 		changeView: function(event) {
 			this.selectedIndex = event.newIndex;
-		}
-	}
-};
+		},
+	
+		navigateToProfile(){
+			this.$navigateTo(Profile);
+			}
+	},
+}
 </script>
 
 <style scoped lang="scss">

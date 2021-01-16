@@ -1,13 +1,19 @@
 <template>
-	<StackLayout>
-		<MyProfile
-			:myUser="myUser"
-			:myPic="myPic">
-		</MyProfile>
-		<Button text="Friends"></Button>
-		<Button text="My Workouts"></Button>
-		<Button text="History"></Button>
-	</StackLayout>
+	<Page>
+		<ActionBar>
+			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
+			<Label text="Profile"></Label>
+		</ActionBar>
+			<StackLayout>
+				<MyProfile
+					:myUser="myUser"
+					:myPic="myPic">
+				</MyProfile>
+				<Button text="Friends"></Button>
+				<Button text="My Workouts"></Button>
+				<Button text="History"></Button>
+			</StackLayout>
+	</Page>
 </template>
 
 <script>
