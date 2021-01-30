@@ -1,13 +1,9 @@
 
 <template>
 <Page>  
-    <ActionBar>
-			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
-			<Label text="History"/>
-	</ActionBar> 
     <ScrollView orientation="Vertical">
         <StackLayout>
-            <Label text="Your Workouts"></Label>
+            <Textfield hint="Search for friends..." returnType="done"></Textfield>
         </StackLayout>
     </ScrollView>
 </Page>

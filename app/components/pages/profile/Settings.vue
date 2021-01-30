@@ -3,11 +3,11 @@
 <Page>  
     <ActionBar>
 			<NavigationButton text="Go back" android.systemIcon="ic_menu_back" @tap="$navigateBack()" />
-			<Label text="History"/>
+			<Label text="Settings"/>
 	</ActionBar> 
     <ScrollView orientation="Vertical">
         <StackLayout>
-            <Label text="Your Workouts"></Label>
+            <Label text="Edit your settings"></Label>
         </StackLayout>
     </ScrollView>
 </Page>
