@@ -6,34 +6,19 @@
 			<Label text="History"/>
 	</ActionBar> 
     <ScrollView orientation="Vertical">
-        <TabView id="tabViewContainer">
-			<TabViewItem title="Week">
-				<StackLayout>
-					<Label text="Week" textWrap="true" class="m-15 h2 text-left" color="black" />
-				</StackLayout>
-			</TabViewItem>
-			<TabViewItem title="Month">
-				<StackLayout>
-					<Label text="Month" textWrap="true" class="m-15 h2 text-left" color="blue" />
-				</StackLayout>
-			</TabViewItem>
-			<TabViewItem title="Year">
-				<StackLayout>
-					<Label text="Year" textWrap="true" class="m-15 h2 text-left" color="blue" />
-				</StackLayout>
-			</TabViewItem>
-			<TabViewItem title="All">
-				<StackLayout>
-					<Label text="All" textWrap="true" class="m-15 h2 text-left" color="blue" />
-				</StackLayout>
-			</TabViewItem>
-		
-		</TabView>
-		<StackLayout>
-				<Label :text="'Days Lifted: ' + text" />
-				<Label text="Volume" />
-				<Label text="Improvement" />
-				<Label text="Charts" />
+        <StackLayout>
+			<SegmentedBar v-model="selectedItem">
+				<SegmentedBarItem title="Week" />
+				<SegmentedBarItem title="Month" />
+				<SegmentedBarItem title="Year" />
+				<SegmentedBarItem title="All" />
+			</SegmentedBar>
+			<StackLayout>
+				<Label :text="'Workout ' + text" />
+				<Label text="Total Volume" />
+				<Label text="Highlights" />
+				<Label text="Time" />
+			</StackLayout>
 		</StackLayout>
 		
     </ScrollView>
@@ -44,10 +29,10 @@
 <script>
 
 export default {
-	components: {
-		
+	props: {
+		individualLiftHistory: Array
 	},
-		data: function(){
+	data: function(){
 		return {
 			selectedItem: 0,
 		}
