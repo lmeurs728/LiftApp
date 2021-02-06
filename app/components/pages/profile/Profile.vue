@@ -22,6 +22,7 @@ import MyProfile from "~/components/pages/profile/MyProfile";
 import History from "~/components/pages/profile/History";
 import Settings from "~/components/pages/profile/Settings";
 import PFriends from "~/components/pages/profile/PFriends";
+import Presaved from "~/components/pages/lifts/presaved/Presaved";
 
 export default {
 	props: {
@@ -51,7 +52,7 @@ export default {
 
 		},
 		navigateToMyWorkouts(){
-
+			this.$navigateTo(Presaved)
 		},
 
 	}

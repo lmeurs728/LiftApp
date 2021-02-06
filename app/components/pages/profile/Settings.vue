@@ -16,11 +16,11 @@
             	<TextField text="Username"></TextField>
 			</FlexboxLayout>
 			<FlexboxLayout>
-				<Label text="Password" class="largeFont"></Label>
+				<Label text="Password:" class="largeFont"></Label>
             	<TextField hint="Password"></TextField>
 			</FlexboxLayout>
 			<FlexboxLayout>
-				<Label text="Bio" class="largeFont"></Label>
+				<Label text="Bio:" class="largeFont"></Label>
             	<TextField hint="Bio"></TextField>
 			</FlexboxLayout>
 			
@@ -49,6 +49,8 @@
 </template>
 
 <script>
+
+
 
 export default {
 	components: {
