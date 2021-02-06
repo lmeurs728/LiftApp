@@ -96,7 +96,7 @@ export default {
 						},
 						{
 							id: "000006",
-							title: "Hip Thrust ;)",
+							title: "Deadlift",
 							isUpper: false,
 							isFixed: true,
 							numSets: 5,
